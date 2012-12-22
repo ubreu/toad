@@ -1,0 +1,10 @@
+allprojects{
+        group = 'com.toadely'
+        version = '0.0.1'
+}
+subprojects{
+        apply plugin: 'java'
+        apply plugin: 'eclipse'
+        sourceCompatibility = 1.7
+        targetCompatibility = 1.7
+}
