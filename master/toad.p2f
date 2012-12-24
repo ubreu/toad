@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?p2f version='1.0.0'?>
+<p2f version='1.0.0'>
+  <ius size='12'>
+    <iu id='org.jboss.tools.cdi.feature.feature.group' name='Context and Dependency Injection Tools' version='1.2.0.v20120611-1827-H85-Final'>
+      <repositories size='2'>
+        <repository location='http://download.jboss.org/jbosstools/updates/stable/indigo'/>
+        <repository location='http://download.jboss.org/jbosstools/updates/development/indigo/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.egit.feature.group' name='Eclipse EGit' version='2.2.0.201212191850-r'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/egit/updates-2.2'/>
+      </repositories>
+    </iu>
+    <iu id='epp.package.jee' name='Eclipse IDE for Java EE Developers' version='1.4.2.20120213-0813'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/releases/indigo'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.jgit.feature.group' name='Eclipse JGit' version='2.2.0.201212191850-r'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/egit/updates-2.2'/>
+      </repositories>
+    </iu>
+    <iu id='org.hibernate.eclipse.feature.feature.group' name='Hibernate Tools' version='3.5.1.v20120715-0252-H98-Final'>
+      <repositories size='2'>
+        <repository location='http://download.jboss.org/jbosstools/updates/stable/indigo'/>
+        <repository location='http://download.jboss.org/jbosstools/updates/development/indigo/'/>
+      </repositories>
+    </iu>
+    <iu id='org.jboss.ide.eclipse.archives.feature.feature.group' name='JBoss Archives Tools' version='3.3.1.v20120715-0237-H92-Final'>
+      <repositories size='2'>
+        <repository location='http://download.jboss.org/jbosstools/updates/stable/indigo'/>
+        <repository location='http://download.jboss.org/jbosstools/updates/development/indigo/'/>
+      </repositories>
+    </iu>
+    <iu id='org.jboss.tools.ws.jaxrs.feature.feature.group' name='JBoss JAX-RS Tools' version='1.3.1.v20120715-0303-H143-Final'>
+      <repositories size='2'>
+        <repository location='http://download.jboss.org/jbosstools/updates/stable/indigo'/>
+        <repository location='http://download.jboss.org/jbosstools/updates/development/indigo/'/>
+      </repositories>
+    </iu>
+    <iu id='org.jboss.ide.eclipse.as.feature.feature.group' name='JBossAS Tools' version='2.3.1.v20120715-0243-H142-Final'>
+      <repositories size='2'>
+        <repository location='http://download.jboss.org/jbosstools/updates/stable/indigo'/>
+        <repository location='http://download.jboss.org/jbosstools/updates/development/indigo/'/>
+      </repositories>
+    </iu>
+    <iu id='org.jboss.tools.jmx.feature.feature.group' name='JMX Console' version='1.3.1.v20120715-0236-H78-Final'>
+      <repositories size='2'>
+        <repository location='http://download.jboss.org/jbosstools/updates/stable/indigo'/>
+        <repository location='http://download.jboss.org/jbosstools/updates/development/indigo/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.wb.core.feature.feature.group' name='WindowBuilder Core' version='1.5.0.r37x201206111201'>
+      <repositories size='1'>
+        <repository location='http://dl.google.com/eclipse/plugin/3.7'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.wb.css.feature.feature.group' name='WindowBuilder CSS Support' version='1.5.0.r37x201206111208'>
+      <repositories size='1'>
+        <repository location='http://dl.google.com/eclipse/plugin/3.7'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.wb.core.xml.feature.feature.group' name='WindowBuilder XML Core (requires Eclipse WTP/WST)' version='1.5.0.r37x201206111216'>
+      <repositories size='1'>
+        <repository location='http://dl.google.com/eclipse/plugin/3.7'/>
+      </repositories>
+    </iu>
+  </ius>
+</p2f>
