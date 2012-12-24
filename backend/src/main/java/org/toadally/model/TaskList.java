@@ -19,6 +19,7 @@ package org.toadally.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -41,7 +42,7 @@ public class TaskList {
 	@Column(name="NAME")
 	private String name;
 	
-	@OneToMany(mappedBy="taskList")
+	@OneToMany(mappedBy="taskList", cascade=CascadeType.ALL)
 	private List<Task> tasks;
 	
 	@Column(name="CREATED_BY")
