@@ -3,6 +3,7 @@
     <wb-module deploy-name="backend">
         <wb-resource deploy-path="/" source-path="/src/main/java"/>
         <wb-resource deploy-path="/" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/test"/>
         <property name="java-output-path" value="/backend/bin"/>
     </wb-module>
 </project-modules>
