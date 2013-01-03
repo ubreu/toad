@@ -46,8 +46,7 @@ subprojects {
 	}
 	
 	task properties << {
-		//project.properties.each { println it.key + ' -> ' + it.value }
-		println project.sourceSets.test.java.srcDirs
+		project.properties.each { println it.key + ' -> ' + it.value }
 	}
 	
 	task depends << {
