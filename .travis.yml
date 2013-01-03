@@ -1,2 +1,2 @@
 language: java
-script: gradle -b master/build.gradle check
+script: gradle -b master/build.gradle build
