@@ -19,6 +19,9 @@ allprojects {
 		]
 		
 		loggingDependencies = files(externalLibs.matching { includes = ['logback*', 'slf4j*'] })
+		
+		jacocoAgent = files(externalLibs.matching { include 'org.jacoco.agent*' })
+		jacocoAnt = files(externalLibs.matching { include 'org.jacoco.ant*' })
 	}
 }
 
@@ -28,20 +31,61 @@ subprojects {
 	sourceCompatibility = 1.7
 	targetCompatibility = 1.7
 
+	tasks.withType(Compile) {
+		options.encoding = "UTF-8"
+	}
+
+	configurations {
+		codeCoverage
+		codeCoverageAnt
+	}
+
 	dependencies {
 		compile loggingDependencies
 		testCompile 'junit:junit:4.8.2'
+		codeCoverage jacocoAgent
+		codeCoverageAnt jacocoAnt
 	}
-
+	
 	test {
 		testLogging.showStandardStreams = true
 	
+		jvmArgs "-javaagent:${configurations.codeCoverage.asPath}=destfile=${project.buildDir.path}/coverage-results/jacoco.exec,sessionid=HSServ,append=false",
+				'-Djacoco=true',
+				'-Xms128m',
+				'-Xmx512m',
+				'-XX:MaxPermSize=128m'
+				
 		beforeTest { descriptor ->
 			logger.lifecycle("Running " + descriptor)
 		}
 		
 		onOutput { descriptor, event ->
 			logger.lifecycle("Test: " + descriptor + " produced standard out/err: " + event.message )
+		}
+	}
+	
+	task coverage(dependsOn: test) << { task ->
+		ant {
+			taskdef(name:'jacocoreport', classname: 'org.jacoco.ant.ReportTask', classpath: configurations.codeCoverageAnt.asPath)
+			mkdir dir: "${task.project.reporting.baseDir}/coverage"
+			jacocoreport {
+				executiondata {
+					fileset(dir: "${task.project.buildDir}/coverage-results") {
+						include name: 'jacoco.exec'
+					}
+				}
+				structure(name: "${task.project.name}") {
+					classfiles {
+						fileset(dir: "${task.project.sourceSets.main.output.classesDir}")
+					}
+					sourcefiles {
+						fileset dir: "src/main/java"
+					}
+				}
+				xml destfile: "${task.project.reporting.baseDir}/coverage/jacoco.xml"
+				html destdir: "${task.project.reporting.baseDir}/coverage"
+			}
 		}
 	}
 	
