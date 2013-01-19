@@ -18,36 +18,20 @@ package org.toadally.boot;
 
 import java.util.Date;
 
-import javax.annotation.PostConstruct;
-import javax.ejb.Startup;
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.HeuristicMixedException;
-import javax.transaction.HeuristicRollbackException;
-import javax.transaction.NotSupportedException;
-import javax.transaction.RollbackException;
-import javax.transaction.SystemException;
-import javax.transaction.UserTransaction;
 
 import org.toadally.model.Task;
 import org.toadally.model.TaskDetail;
 import org.toadally.model.TaskList;
 import org.toadally.tx.Transactional;
 
-@ApplicationScoped
-@Startup
 public class DemoDataLoader {
 
-	@Inject
-	private UserTransaction utx;
-	
 	@PersistenceContext
 	private EntityManager em;
 
 	@Transactional
-	@PostConstruct
 	public void init() {
 		System.out.println("Starting the unstartable...");
 		TaskList taskList = new TaskList("My Fürst List");
@@ -65,14 +49,6 @@ public class DemoDataLoader {
 
 		new TaskDetail(false, new Date(), "My first description", task);
 
-		try {
-			utx.begin();
-			em.persist(taskList);
-			utx.commit();
-		} catch (NotSupportedException | SystemException | SecurityException | IllegalStateException | RollbackException | HeuristicMixedException | HeuristicRollbackException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		em.persist(taskList);
 	}
 }
